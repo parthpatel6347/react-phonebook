@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://parthpatel:mgml0btTQIqmxhBJ@cluster0.yugt6.mongodb.net/Phonebook?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://parthpatel:mgml0btTQIqmxhBJ@cluster0.yugt6.mongodb.net/Phonebook?retryWrites=true&w=majority",
+  "jwtSecret": "secretisthesecret"
 }
