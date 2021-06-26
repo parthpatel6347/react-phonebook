@@ -6,6 +6,8 @@ const app = express();
 //Connect to mongoDB
 connectDB();
 
+app.use(express.json({ extended: false }));
+
 app.get("/", (req, res) => {
   res.json({ message: "hello from Phonebook API" });
 });
