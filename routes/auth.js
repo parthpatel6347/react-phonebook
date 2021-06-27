@@ -2,10 +2,11 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const User = require("../models/User");
 const config = require("config");
 const auth = require("../middleware/auth");
 const { body, validationResult } = require("express-validator");
+
+const User = require("../models/User");
 
 router.get("/", auth, async (req, res) => {
   try {
@@ -14,7 +15,7 @@ router.get("/", auth, async (req, res) => {
     const user = await User.findById(req.user.id).select("-password");
     res.json(user);
   } catch (error) {
-    console.error(err.message);
+    console.error(error.message);
     res.status(500).send("Server Error");
   }
 });
@@ -38,10 +39,7 @@ router.post(
         return res.status(400).json({ message: "Invalid Credentials" });
       }
 
-      console.log(user.password);
-      console.log(password);
       const isMatch = await bcrypt.compare(password, user.password);
-      console.log(isMatch);
       if (!isMatch) {
         console.log("pwd wrong");
 
