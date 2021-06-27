@@ -1,10 +1,11 @@
 import React from "react";
+import ContactForm from "./ContactForm";
 import Contacts from "./Contacts";
 
 const Home = () => {
   return (
     <div>
-      <div>contact form</div>
+      <ContactForm />
       <div>
         <Contacts />
       </div>
