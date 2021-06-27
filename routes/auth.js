@@ -4,10 +4,19 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const config = require("config");
+const auth = require("../middleware/auth");
 const { body, validationResult } = require("express-validator");
 
-router.get("/", (req, res) => {
-  res.send("get logged in user");
+router.get("/", auth, async (req, res) => {
+  try {
+    //find user from user.id, which is added to the req by the middleware(deduced from the token)
+    //we dont need user password
+    const user = await User.findById(req.user.id).select("-password");
+    res.json(user);
+  } catch (error) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
 });
 
 router.post(
@@ -16,7 +25,7 @@ router.post(
   body("password").exists().withMessage("Please enter a valid password."),
   async (req, res) => {
     const errors = validationResult(req);
-    if (errors.length) {
+    if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
     const { email, password } = req.body;

@@ -18,7 +18,7 @@ router.post(
     .withMessage("must be at least 5 chars long"),
   async (req, res) => {
     const errors = validationResult(req);
-    if (errors.length) {
+    if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
     const { name, email, password } = req.body;
