@@ -11,16 +11,21 @@ function Register(props) {
   });
 
   const { setAlert } = useContext(AlertContext);
-  const { register, error, clearErrors } = useContext(AuthContext);
+  const { register, error, clearErrors, isAuthenticated } =
+    useContext(AuthContext);
 
   const { name, email, password, cnfPassword } = user;
 
   useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push("/");
+    }
+
     if (error) {
       setAlert(error);
     }
     clearErrors();
-  }, [error]);
+  }, [error, isAuthenticated, props]);
 
   const handleChange = (e) =>
     setUser({ ...user, [e.target.name]: e.target.value });
