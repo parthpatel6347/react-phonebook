@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AlertContext from "./context/alert/alertContext";
 
 function Register(props) {
   const [user, setUser] = useState({
@@ -7,6 +8,7 @@ function Register(props) {
     password: "",
     cnfPassword: "",
   });
+  const { setAlert } = useContext(AlertContext);
 
   const { name, email, password, cnfPassword } = user;
 
@@ -15,7 +17,11 @@ function Register(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("register submit");
+    if (password !== cnfPassword) {
+      setAlert("Passwords do not match.");
+    } else {
+      console.log("register submit");
+    }
   };
 
   return (
@@ -24,7 +30,13 @@ function Register(props) {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" value={name} onChange={handleChange} />
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div>
           <label htmlFor="email">Email</label>
@@ -33,6 +45,7 @@ function Register(props) {
             name="email"
             value={email}
             onChange={handleChange}
+            required
           />
         </div>
         <div>
@@ -42,6 +55,8 @@ function Register(props) {
             name="password"
             value={password}
             onChange={handleChange}
+            required
+            minLength="5"
           />
         </div>
         <div>
@@ -51,6 +66,7 @@ function Register(props) {
             name="cnfPassword"
             value={cnfPassword}
             onChange={handleChange}
+            required
           />
         </div>
         <input type="submit" value="Register" />

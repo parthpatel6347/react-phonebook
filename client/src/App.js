@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 import Register from "./Register";
 import Login from "./Login";
+import Alert from "./Alert";
 
 import ContactState from "./context/contact/ContactState";
 import AuthState from "./context/auth/AuthState";
@@ -20,6 +21,7 @@ function App() {
             <Fragment>
               <Navbar />
               <div className="container">
+                <Alert />
                 <Switch>
                   <Route exact path="/" component={Home} />
                   <Route exact path="/register" component={Register} />
