@@ -21,6 +21,7 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+
     const { name, email, password } = req.body;
 
     try {
@@ -28,7 +29,7 @@ router.post(
       if (user) {
         return res
           .status(400)
-          .json({ msg: "A user with this email already exists." });
+          .json({ message: "A user with this email already exists." });
       }
 
       user = new User({
