@@ -13,7 +13,6 @@ import {
   SET_ALERT,
   REMOVE_ALERT,
 } from "../types";
-import contactContext from "./contactContext";
 
 const ContactState = (props) => {
   const initialState = {
