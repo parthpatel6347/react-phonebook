@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import ContactContext from "./contactContext";
 import contactReducer from "./contactReducer";
@@ -10,44 +11,42 @@ import {
   UPDATE_CONTACT,
   FILTER_CONTACTS,
   CLEAR_FILTER,
-  SET_ALERT,
-  REMOVE_ALERT,
+  CONTACT_ERROR,
+  GET_CONTACTS,
 } from "../types";
 
 const ContactState = (props) => {
   const initialState = {
-    contacts: [
-      {
-        id: 1,
-        name: "Parth Patel",
-        email: "p@g.com",
-        phone: "1234567891",
-        type: "personal",
-      },
-      {
-        id: 2,
-        name: "Aneri Patel",
-        email: "p123@g.com",
-        phone: "1212567893",
-        type: "personal",
-      },
-      {
-        id: 3,
-        name: "Nishant Vadodaria",
-        email: "prt@g.com",
-        phone: "1233333331",
-        type: "professional",
-      },
-    ],
+    contacts: [],
     current: null,
     filtered: null,
+    error: null,
   };
 
   const [state, dispatch] = useReducer(contactReducer, initialState);
 
-  const addContact = (contact) => {
-    contact.id = uuidv4();
-    dispatch({ type: ADD_CONTACT, payload: contact });
+  const getContacts = async () => {
+    try {
+      const res = await axios.get("/api/contacts");
+      dispatch({ type: GET_CONTACTS, payload: res.data });
+    } catch (error) {
+      dispatch({ type: CONTACT_ERROR, payload: error.response.data.message });
+    }
+  };
+
+  const addContact = async (contact) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      const res = await axios.post("/api/contacts", contact, config);
+      dispatch({ type: ADD_CONTACT, payload: res.data });
+    } catch (error) {
+      dispatch({ type: CONTACT_ERROR, payload: error.response.data.message });
+    }
   };
 
   const deleteContact = (id) => {
@@ -77,9 +76,8 @@ const ContactState = (props) => {
   return (
     <ContactContext.Provider
       value={{
-        contacts: state.contacts,
-        current: state.current,
-        filtered: state.filtered,
+        ...state,
+        getContacts,
         addContact,
         deleteContact,
         setCurrent,
