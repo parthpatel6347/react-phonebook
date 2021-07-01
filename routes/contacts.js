@@ -10,7 +10,11 @@ router.get("/", auth, async (req, res) => {
   try {
     //req.user.id added by the auth middleware after decoding the token
     console.log(req.user.id);
-    const contacts = await Contact.find({ user: req.user.id });
+    const contacts = await Contact.find({ user: req.user.id })
+      .collation({ locale: "en", strength: 2 })
+      .sort({
+        name: 1,
+      });
     res.json(contacts);
   } catch (error) {
     console.error(error.message);
@@ -39,9 +43,18 @@ router.post(
         user: req.user.id,
       });
 
-      const contact = await newContact.save();
+      await newContact.save();
 
-      res.json(contact);
+      const contacts = await Contact.find({ user: req.user.id })
+        .collation({ locale: "en", strength: 2 })
+        .sort({
+          name: 1,
+        });
+      res.json(contacts);
+
+      // const contact = await newContact.save();
+
+      // res.json(contact);
     } catch (error) {
       console.error(error.message);
       res.status(500).send("Server Error");

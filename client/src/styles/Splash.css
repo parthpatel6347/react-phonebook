@@ -1,0 +1,8 @@
+.root{
+    margin:0;
+    box-sizing: border-box;
+    background: #BB8FEE url('./assets/bg.png');
+    background-size: cover;
+    background-position: center;
+    height:100vh;
+}

@@ -1,37 +1,15 @@
-import React, { useContext, Fragment } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import AuthContext from "./context/auth/authContext";
+
+import "./styles/Navbar.css";
 
 const Navbar = () => {
-  const { isAuthenticated, logout } = useContext(AuthContext);
-
-  const handleLogout = () => {
-    logout();
-  };
-
-  const authLinks = (
-    <li>
-      <a onClick={handleLogout} href="#!">
-        Logout
-      </a>
-    </li>
-  );
-
-  const guestLinks = (
-    <Fragment>
-      <li>
-        <Link to="/register">Register</Link>
-      </li>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
-    </Fragment>
-  );
-
   return (
-    <div>
-      <h1>Navbar</h1>
-      <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
+    <div className="navbar">
+      <div className="container">
+        <h1>phoneBook</h1>
+        <Link to="/login">Login</Link>
+      </div>
     </div>
   );
 };
