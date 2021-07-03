@@ -6,10 +6,13 @@ import "./styles/Navbar.css";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <div className="container">
-        <h1>phoneBook</h1>
-        <Link to="/login">Login</Link>
-      </div>
+      <h1>phoneBook</h1>
+      <Link to="/login">
+        <button>
+          <span>Sign in</span>
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </Link>
     </div>
   );
 };

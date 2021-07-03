@@ -1,16 +1,9 @@
 .navbar{
 display: flex;
-justify-content: center;
+justify-content: space-between;
+align-items: center;
+height: 100px;
 width: 100%;
-}
-
-.container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100px;
-
-    width: 70%;
 }
 
 
@@ -19,4 +12,36 @@ width: 100%;
     font-size: 30px;
     color:white;
     font-weight: 600;
+}
+
+
+.navbar a{
+    text-decoration: none;
+}
+
+.navbar button{
+    margin: 0;
+    width: 115px;
+    border: 2px solid #8F00B9;
+    border-radius: 34px;
+    padding:5px;
+    background-color: transparent;
+}
+
+.navbar button:hover{
+    cursor: pointer;
+    
+}
+
+.navbar button span{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color:#8F00B9;
+    font-weight: 600;
+}
+
+.navbar i{
+font-size: 14px;
+margin-left: 8px;
+color: #8F00B9;
 }
