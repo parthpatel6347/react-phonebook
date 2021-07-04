@@ -1,4 +1,4 @@
-.navbar{
+.navbar-custom{
 display: flex;
 justify-content: space-between;
 align-items: center;
@@ -7,19 +7,20 @@ width: 100%;
 }
 
 
-.navbar h1{
+.navbar-custom h1{
     margin: 0;
-    font-size: 30px;
+    font-size: 26px;
     color:white;
     font-weight: 600;
+    letter-spacing: -1px;
 }
 
 
-.navbar a{
+.navbar-custom a{
     text-decoration: none;
 }
 
-.navbar button{
+.navbar-custom button{
     margin: 0;
     width: 115px;
     border: 2px solid #8F00B9;
@@ -28,19 +29,19 @@ width: 100%;
     background-color: transparent;
 }
 
-.navbar button:hover{
+.navbar-custom button:hover{
     cursor: pointer;
     
 }
 
-.navbar button span{
+.navbar-custom button span{
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     color:#8F00B9;
     font-weight: 600;
 }
 
-.navbar i{
+.navbar-custom i{
 font-size: 14px;
 margin-left: 8px;
 color: #8F00B9;

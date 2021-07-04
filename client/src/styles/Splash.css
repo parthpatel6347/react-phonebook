@@ -9,7 +9,7 @@
     justify-content: center;
 }
 
-.container{
+.container-custom{
     width:70%;
     height: 100%;
     display: flex;
@@ -31,12 +31,14 @@
     height:665px;
 }
 
-.content-left h1{
+.main-text{
     font-size: 80px;
-    line-height: 90px;
+    font-weight: 700;
+    line-height: 80px;
     margin:0;
     width: 600px;
     color:#262626;
+    letter-spacing: -1px;
 }
 
 .content-left p{

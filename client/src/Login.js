@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import AlertContext from "./context/alert/alertContext";
 import AuthContext from "./context/auth/authContext";
+
 import "./styles/Login.css";
+import { Form, FormGroup, FormLabel, FormControl } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Login(props) {
   const [user, setUser] = useState({
@@ -39,31 +42,40 @@ function Login(props) {
 
   return (
     <div className="root">
-      <div className="container">
+      <div className="main">
         <h1>phoneBook</h1>
         <div className="form-container">
           <h2>Sign in</h2>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="email">Email</label>
-              <input
+          <Form onSubmit={handleSubmit}>
+            <FormGroup className="custom-group" controlId="Email">
+              <FormLabel className="custom-label">Email</FormLabel>
+              <FormControl
+                className="custom-input"
                 type="email"
+                // placeholder="Enter email"
                 name="email"
                 value={email}
                 onChange={handleChange}
               />
-            </div>
-            <div>
-              <label htmlFor="password">Password</label>
-              <input
+            </FormGroup>
+            <FormGroup controlId="Password">
+              <FormLabel className="custom-label">Password</FormLabel>
+              <FormControl
+                className="custom-input"
                 type="password"
                 name="password"
                 value={password}
                 onChange={handleChange}
               />
-            </div>
-            <input type="submit" value="Login" />
-          </form>
+            </FormGroup>
+            <input className="submit-btn" type="submit" value="Continue" />
+          </Form>
+          <p className="signup-text">
+            Don't have an account?
+            <Link to="/register">
+              <span> Sign up!</span>
+            </Link>
+          </p>
         </div>
       </div>
     </div>

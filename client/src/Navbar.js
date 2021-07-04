@@ -5,7 +5,7 @@ import "./styles/Navbar.css";
 
 const Navbar = () => {
   return (
-    <div className="navbar">
+    <div className="navbar-custom">
       <h1>phoneBook</h1>
       <Link to="/login">
         <button>

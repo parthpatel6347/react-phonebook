@@ -2,6 +2,9 @@ import React, { useState, useContext, useEffect } from "react";
 import AlertContext from "./context/alert/alertContext";
 import AuthContext from "./context/auth/authContext";
 
+import { Form, FormGroup, FormLabel, FormControl } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 function Register(props) {
   const [user, setUser] = useState({
     name: "",
@@ -44,52 +47,67 @@ function Register(props) {
   };
 
   return (
-    <div>
-      <h1> Register Account</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={handleChange}
-            required
-          />
+    <div className="root">
+      <div className="main">
+        <h1>phoneBook</h1>
+        <div className="form-container">
+          <h2> Register Account</h2>
+          <Form onSubmit={handleSubmit}>
+            <FormGroup className="custom-group" controlId="Name">
+              <FormLabel className="custom-label">Name</FormLabel>
+              <FormControl
+                className="custom-input"
+                type="text"
+                name="name"
+                value={name}
+                onChange={handleChange}
+                required
+              />
+            </FormGroup>
+            <FormGroup className="custom-group" controlId="Email">
+              <FormLabel className="custom-label">Email</FormLabel>
+              <FormControl
+                className="custom-input"
+                type="email"
+                name="email"
+                value={email}
+                onChange={handleChange}
+                required
+              />
+            </FormGroup>
+            <FormGroup className="custom-group" controlId="Password">
+              <FormLabel className="custom-label">Password</FormLabel>
+              <FormControl
+                className="custom-input"
+                type="password"
+                name="password"
+                value={password}
+                onChange={handleChange}
+                required
+                minLength="5"
+              />
+            </FormGroup>
+            <FormGroup controlId="Confirm Password">
+              <FormLabel className="custom-label">Confirm Password</FormLabel>
+              <FormControl
+                className="custom-input"
+                type="password"
+                name="cnfPassword"
+                value={cnfPassword}
+                onChange={handleChange}
+                required
+              />
+            </FormGroup>
+            <input className="submit-btn" type="submit" value="Register" />
+          </Form>
+          <p className="signup-text">
+            Have an account?
+            <Link to="/login">
+              <span> Sign in</span>
+            </Link>
+          </p>
         </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-            required
-            minLength="5"
-          />
-        </div>
-        <div>
-          <label htmlFor="cnfPassword">Confirm Password</label>
-          <input
-            type="password"
-            name="cnfPassword"
-            value={cnfPassword}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <input type="submit" value="Register" />
-      </form>
+      </div>
     </div>
   );
 }

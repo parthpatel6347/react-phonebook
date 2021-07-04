@@ -8,11 +8,13 @@ import { Link } from "react-router-dom";
 function Splash(props) {
   return (
     <div className="root">
-      <div className="container">
+      <div className="container-custom">
         <Navbar />
         <div className="content">
           <div className="content-left">
-            <h1>The best place to save your contacts.</h1>
+            <span className="main-text">
+              The best place to save your contacts.
+            </span>
             <p>Add and access your contacts from anywhere.</p>
             <Link to="/register">
               <button>
