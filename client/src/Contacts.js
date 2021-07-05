@@ -3,9 +3,9 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import ContactContext from "./context/contact/contactContext";
 import ContactItem from "./ContactItem";
 import Loading from "./Loading";
-import "./Contacts.css";
+import "./styles/Contacts.css";
 
-const Contacts = () => {
+const Contacts = ({ handleEdit }) => {
   const { contacts, filtered, getContacts, loading } =
     useContext(ContactContext);
 
@@ -20,7 +20,7 @@ const Contacts = () => {
   return (
     <Fragment>
       {contacts !== null && !loading ? (
-        <TransitionGroup>
+        <TransitionGroup className="contacts-container">
           {filtered !== null
             ? filtered.map((contact) => (
                 <CSSTransition
@@ -28,7 +28,7 @@ const Contacts = () => {
                   timeout={500}
                   classNames="item"
                 >
-                  <ContactItem contact={contact} />
+                  <ContactItem contact={contact} handleEdit={handleEdit} />
                 </CSSTransition>
               ))
             : contacts.map((contact) => (
@@ -37,7 +37,7 @@ const Contacts = () => {
                   timeout={500}
                   classNames="item"
                 >
-                  <ContactItem contact={contact} />
+                  <ContactItem contact={contact} handleEdit={handleEdit} />
                 </CSSTransition>
               ))}
         </TransitionGroup>

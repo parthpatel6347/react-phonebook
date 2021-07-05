@@ -1,0 +1,36 @@
+.filter-container{
+    border:1px solid rgb(190, 190, 190);
+    display: flex;
+    align-items: center;
+    padding:7px 15px;
+    border-radius: 7px;
+    width: 400px;
+}
+
+
+.filter-container input{
+    border:none;
+    flex-grow: 2;
+}
+
+.filter-container input:focus{
+    outline: none;
+}
+
+.filter-container input::placeholder{
+    color:rgb(175, 175, 175);
+}
+
+.filter-container:focus-within{
+    border:1px solid #ccafec ;
+    box-shadow: #BB8FEE 0px 0px 8px 0px;
+}
+
+.filter-container i{
+color:rgb(192, 192, 192);
+}
+
+.filter-container i:hover{
+    cursor: pointer;
+    color:rgb(114, 114, 114);
+    }

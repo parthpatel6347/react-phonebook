@@ -1,0 +1,32 @@
+.nav-home{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 70px;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 8px;
+}
+
+.nav-items{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-home h1{
+    margin: 0;
+    font-size: 24px;
+    color:#8F00B9;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.nav-home a{
+    color:black;
+    font-weight: 500;
+    letter-spacing: -1px;
+}
+
+.nav-home a:hover{
+text-decoration: none;
+}

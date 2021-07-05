@@ -1,0 +1,101 @@
+.contact-item{
+    height: 145px;
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    min-width: 350px;
+    padding:20px 30px 20px 30px;
+    border-radius: 11px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+
+.contact-info{
+grid-area: 1/1;
+margin-left: 5px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-btns{
+    justify-self: end;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: -30px;
+}
+
+.top-row{
+    margin-bottom: 5px;
+}
+
+.bottom-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-name{
+    margin-right: 30px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.icon{
+    width: 20px;
+    margin-right: 10px;
+    color: #8F00B9;
+}
+
+.icon-btn{
+    width: 20px;
+}
+
+.tag{
+    grid-area: 1/1;
+    height: 90px;
+    width: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 11px;
+    border-bottom-right-radius: 11px;
+    margin-left: -30px;
+}
+
+.professional{
+    background-color: #c2e1ff;
+}
+
+.personal{
+    background-color: #b6ffcb;
+}
+
+.action-btn{
+    display: none;
+    border: none;
+    height: 50px;
+    background-color: #fbeeff;
+    color: #8F00B9;
+    width: 35px;
+}
+
+
+.action-btn:hover{
+    background-color: #f3d7fc;
+}
+
+.btn-top{
+    border-top-left-radius: 11px;
+}
+
+.btn-bottom{
+    border-bottom-left-radius: 11px;
+}
+
+.contact-item:hover .action-btn{
+    display: unset;
+}
