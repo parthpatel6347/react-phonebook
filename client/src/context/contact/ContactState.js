@@ -45,6 +45,7 @@ const ContactState = (props) => {
       const res = await axios.post("/api/contacts", contact, config);
       dispatch({ type: ADD_CONTACT, payload: res.data });
     } catch (error) {
+      console.log(error.response);
       dispatch({ type: CONTACT_ERROR, payload: error.response.data.message });
     }
   };

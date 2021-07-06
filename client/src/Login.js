@@ -3,7 +3,13 @@ import AlertContext from "./context/alert/alertContext";
 import AuthContext from "./context/auth/authContext";
 
 import "./styles/Login.css";
-import { Form, FormGroup, FormLabel, FormControl } from "react-bootstrap";
+import {
+  Form,
+  FormGroup,
+  FormLabel,
+  FormControl,
+  InputGroup,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Login(props) {
@@ -11,6 +17,8 @@ function Login(props) {
     email: "",
     password: "",
   });
+
+  const [validated, setValidated] = useState(false);
 
   const { setAlert } = useContext(AlertContext);
   const { login, error, clearErrors, isAuthenticated } =
@@ -25,14 +33,22 @@ function Login(props) {
 
     if (error) {
       setAlert(error);
+      setValidated(false);
     }
     clearErrors();
-  }, [error, isAuthenticated, props]);
+  }, [error, isAuthenticated, props, validated]);
 
   const handleChange = (e) =>
     setUser({ ...user, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    setValidated(true);
     e.preventDefault();
     login({
       email,
@@ -46,27 +62,38 @@ function Login(props) {
         <h1>phoneBook</h1>
         <div className="form-container">
           <h2>Sign in</h2>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} noValidate validated={validated}>
             <FormGroup className="custom-group" controlId="Email">
               <FormLabel className="custom-label">Email</FormLabel>
-              <FormControl
-                className="custom-input"
-                type="email"
-                // placeholder="Enter email"
-                name="email"
-                value={email}
-                onChange={handleChange}
-              />
+              <InputGroup hasValidation>
+                <FormControl
+                  required
+                  className="custom-input"
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={handleChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter a valid email.
+                </Form.Control.Feedback>
+              </InputGroup>
             </FormGroup>
             <FormGroup controlId="Password">
               <FormLabel className="custom-label">Password</FormLabel>
-              <FormControl
-                className="custom-input"
-                type="password"
-                name="password"
-                value={password}
-                onChange={handleChange}
-              />
+              <InputGroup hasValidation>
+                <FormControl
+                  required
+                  className="custom-input"
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={handleChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter a password.
+                </Form.Control.Feedback>
+              </InputGroup>
             </FormGroup>
             <input className="submit-btn" type="submit" value="Continue" />
           </Form>

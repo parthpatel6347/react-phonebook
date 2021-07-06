@@ -39,6 +39,10 @@
 
 }
 
+.has-validation{
+    height: 75px !important;
+}
+
 .custom-input{
     font-family: 'Poppins', sans-serif;
     border-radius: 7px !important;
@@ -63,11 +67,11 @@
 }
 
 .custom-group{
-    margin-bottom: 25px !important;
+    margin-bottom: 15px !important;
 }
 
 .submit-btn{
-    margin-top: 19px;
+    margin-top: 10px;
     width: 100%;
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
