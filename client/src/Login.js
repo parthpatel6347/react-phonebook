@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import AlertContext from "./context/alert/alertContext";
 import AuthContext from "./context/auth/authContext";
 
+import Alert from "./Alert";
+
 import "./styles/Login.css";
 import {
   Form,
@@ -79,7 +81,7 @@ function Login(props) {
                 </Form.Control.Feedback>
               </InputGroup>
             </FormGroup>
-            <FormGroup controlId="Password">
+            <FormGroup controlId="Password" className="bottom-input">
               <FormLabel className="custom-label">Password</FormLabel>
               <InputGroup hasValidation>
                 <FormControl
@@ -95,6 +97,9 @@ function Login(props) {
                 </Form.Control.Feedback>
               </InputGroup>
             </FormGroup>
+            <div style={{ height: "24px" }}>
+              <Alert />
+            </div>
             <input className="submit-btn" type="submit" value="Continue" />
           </Form>
           <p className="signup-text">

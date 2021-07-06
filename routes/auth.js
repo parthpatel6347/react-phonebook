@@ -35,15 +35,16 @@ router.post(
       let user = await User.findOne({ email });
       console.log(user);
       if (!user) {
-        console.log("email wrong");
-        return res.status(400).json({ message: "Invalid Credentials" });
+        return res
+          .status(400)
+          .json({ message: "Email or password is not valid." });
       }
 
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
-        console.log("pwd wrong");
-
-        return res.status(400).json({ message: "Invalid Credentials" });
+        return res
+          .status(400)
+          .json({ message: "Email or password is not valid." });
       }
 
       //token payload

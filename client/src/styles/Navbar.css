@@ -27,11 +27,14 @@ width: 100%;
     border-radius: 34px;
     padding:5px;
     background-color: transparent;
+    transition: all 0.3s;
+
 }
 
 .navbar-custom button:hover{
     cursor: pointer;
-    
+    background-color: #8F00B9;
+    transition: all .3s;
 }
 
 .navbar-custom button span{
@@ -39,10 +42,25 @@ width: 100%;
     font-size: 16px;
     color:#8F00B9;
     font-weight: 600;
+    transition: all 0.3s;
+
+}
+
+.navbar-custom button:hover span{
+    transition: all 0.3s;
+    color:white;
 }
 
 .navbar-custom i{
 font-size: 14px;
-margin-left: 8px;
+margin-left: 6px;
 color: #8F00B9;
+transition: color .3s;
+
+}
+
+.navbar-custom button:hover i{
+transition: color .3s;
+    color: #ffffff;
+
 }

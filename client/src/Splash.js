@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import Navbar from "./Navbar";
 import "./styles/Splash.css";
 import illustration from "./styles/assets/illustration.png";
+import AuthContext from "./context/auth/authContext";
 
 import { Link } from "react-router-dom";
 
 function Splash(props) {
+  const { isAuthenticated } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push("/home");
+    }
+  }, []);
+
   return (
     <div className="root">
       <div className="container-custom">

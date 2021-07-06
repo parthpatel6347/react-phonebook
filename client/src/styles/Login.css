@@ -81,6 +81,12 @@
     border:none;
     border-radius: 7px;
     height: 52px;
+    transition: all 0.3s;
+}
+
+.submit-btn:hover{
+    transition: all 0.3s;
+    background-color: #6e038f;
 }
 
 .signup-text{
@@ -94,4 +100,8 @@
 .signup-text a:hover{
     text-decoration: none;
     color:#862eeb ;
+}
+
+.bottom-input{
+    margin-bottom: 0 !important;
 }

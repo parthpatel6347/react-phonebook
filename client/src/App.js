@@ -25,7 +25,6 @@ function App() {
           <Router>
             <Fragment>
               <div>
-                <Alert />
                 <Switch>
                   <Route exact path="/" component={Splash} />
                   <PrivateRoute exact path="/home" component={Home} />

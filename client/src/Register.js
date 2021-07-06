@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import AlertContext from "./context/alert/alertContext";
 import AuthContext from "./context/auth/authContext";
+import Alert from "./Alert";
 
 import {
   Form,
@@ -120,7 +121,7 @@ function Register(props) {
                 </Form.Control.Feedback>
               </InputGroup>
             </FormGroup>
-            <FormGroup controlId="Confirm Password">
+            <FormGroup controlId="Confirm Password" className="bottom-input">
               <FormLabel className="custom-label">Confirm Password</FormLabel>
               <InputGroup hasValidation>
                 <FormControl
@@ -136,6 +137,9 @@ function Register(props) {
                 </Form.Control.Feedback>
               </InputGroup>
             </FormGroup>
+            <div style={{ height: "24px" }}>
+              <Alert />
+            </div>
             <input className="submit-btn" type="submit" value="Register" />
           </Form>
           <p className="signup-text">
