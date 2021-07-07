@@ -29,7 +29,12 @@ const Home = () => {
   const greeting = user == null ? "Hello" : `Hello, ${user.name}`;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <NavbarHome />
       <div className="home">
         <h1>{greeting}</h1>
@@ -42,9 +47,7 @@ const Home = () => {
             <button onClick={handleShow}>Add Contact</button>
           </div>
         </div>
-        <div>
-          <Contacts handleEdit={handleShow} />
-        </div>
+        <Contacts handleEdit={handleShow} />
       </div>
     </div>
   );

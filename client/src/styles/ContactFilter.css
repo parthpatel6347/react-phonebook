@@ -11,6 +11,7 @@
 .filter-container input{
     border:none;
     flex-grow: 2;
+    width: 100px;
 }
 
 .filter-container input:focus{
@@ -34,3 +35,20 @@ color:rgb(192, 192, 192);
     cursor: pointer;
     color:rgb(114, 114, 114);
     }
+
+ @media (max-width:750px){
+     .filter-container{
+         width: 300px;
+        }
+}
+
+ @media (max-width:650px){
+    .filter-container{
+                width: 200px;
+            }
+    .filter-container input{
+                border:none;
+                flex-grow: 2;
+                width: 150px;
+            }
+             }

@@ -1,3 +1,4 @@
+
 .modal-content{
     padding:40px;
     border: none !important;
@@ -51,4 +52,12 @@
     width:15px;
     height: 15px;
     border-radius: 5px;
+}
+
+
+@media (max-width:550px){
+    .modal-content{
+        margin:15px;
+        padding:30px;
+    }
 }

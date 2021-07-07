@@ -1,6 +1,8 @@
 .home{
     width: 70%;
     align-self: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .home h1{
@@ -48,3 +50,32 @@
 transition: all 0.3s;
     background-color: #6e038f;
 }
+
+@media (max-width:1070px){
+    .action-bar span{
+     display: none;
+    }
+    .contact-actions{
+        justify-content: space-between;
+        width: 100%;
+    }
+  }
+
+
+  @media (max-width:850px){
+  .home{
+      width: 80%;
+  }
+  }
+
+  @media (max-width:550px){
+    .home{
+        width: 90%;
+    }
+    .contact-actions button{
+        width: 135px;
+        margin-left: 20px;  
+        font-size: 15px;  
+        font-weight: 500;
+    }
+    }

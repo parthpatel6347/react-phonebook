@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap:40px;
+  width: 100%;
 }
 
 /* CSS transitions */
@@ -19,4 +20,18 @@
 .item-exit-active {
   opacity: 0;
   transition: opacity 500ms ease-in;
+}
+
+/* media queries */
+
+@media (max-width:1600px){
+  .contacts-container{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width:1070px){
+  .contacts-container{
+    grid-template-columns: 1fr;
+  }
 }

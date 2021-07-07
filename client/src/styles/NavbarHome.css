@@ -22,6 +22,7 @@
 }
 
 .nav-home a{
+    font-size: 17px;
     color:black;
     font-weight: 500;
     letter-spacing: -1px;
@@ -30,3 +31,15 @@
 .nav-home a:hover{
 text-decoration: none;
 }
+
+@media (max-width:850px){
+    .nav-items{
+        width: 80%;
+    }
+    }
+
+    @media (max-width:550px){
+        .nav-items{
+            width: 90%;
+        }
+        }
