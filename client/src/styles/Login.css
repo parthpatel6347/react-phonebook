@@ -4,9 +4,10 @@
     background: #BB8FEE url('./assets/bg.png');
     background-size: cover;
     background-position: center;
-    height:100vh;
+    /* height:100vh; */
     display: flex;
     justify-content: center;
+    overflow-y: scroll;
 }
 
 .main{
@@ -14,6 +15,8 @@
     flex-direction: column;
     justify-content: center;
     width:480px;
+   
+
 }
 
 .main h1{
@@ -104,4 +107,13 @@
 
 .bottom-input{
     margin-bottom: 0 !important;
+}
+
+@media (max-width:550px){
+    .main{
+        width: 90%;
+    }
+    .form-container{
+        padding:30px;
+    }
 }
