@@ -67,7 +67,7 @@ function Register(props) {
 
   return (
     <div className="root">
-      <div className="main">
+      <div className="main-container">
         <h1>phoneBook</h1>
         <div className="form-container">
           <h2> Register Account</h2>

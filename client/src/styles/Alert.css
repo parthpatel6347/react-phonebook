@@ -1,0 +1,11 @@
+.alert-container p{
+    color: #e53935;
+     margin: 0;
+     font-size: 15px;
+}
+
+@media (max-width:550px){
+    .alert-container p {
+        font-size: 14px;
+    }
+}

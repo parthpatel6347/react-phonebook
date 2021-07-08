@@ -4,23 +4,22 @@
     background: #BB8FEE url('./assets/bg.png');
     background-size: cover;
     background-position: center;
-    /* height:100vh; */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height:100vh;
     display: flex;
     justify-content: center;
     overflow-y: scroll;
 }
 
-.main{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.main-container{
     width:480px;
-   
-
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
-.main h1{
-    margin: 0;
+.main-container h1{
+    margin: 30px 0 0;
     font-size: 26px;
     color:white;
     font-weight: 600;
@@ -110,10 +109,22 @@
 }
 
 @media (max-width:550px){
-    .main{
+    .main-container{
         width: 90%;
     }
     .form-container{
-        padding:30px;
+        padding:40px;
+    }
+    .custom-input{
+        padding:20px 15px !important;
+    }
+    .custom-group{
+        margin-bottom:10px !important;
+    }
+    .main-container h1{
+        font-weight: 700;
+    }
+    .root{
+        background-position-x: -520px;
     }
 }

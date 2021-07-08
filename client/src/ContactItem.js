@@ -43,12 +43,10 @@ const ContactItem = ({ contact, handleEdit }) => {
           </span>
         )}
         <div className="bottom-row">
-          {phone && (
-            <span className="contact-phone">
-              <PhoneIcon className="icon" />
-              {phone}
-            </span>
-          )}
+          <span className="contact-phone">
+            <PhoneIcon className="icon" />
+            {phone ? phone : "-"}
+          </span>
         </div>
       </div>
       <div className="contact-btns">
