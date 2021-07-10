@@ -16,7 +16,7 @@ const NavbarHome = () => {
   return (
     <div className="nav-home">
       <div className="nav-items">
-        <h1>phonebook</h1>
+        <h1>phoneBook</h1>
         <a onClick={handleLogout} href="#!">
           Sign out
         </a>
